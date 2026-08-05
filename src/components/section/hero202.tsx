@@ -32,15 +32,15 @@ interface HeroIntegrationsProps {
 type Props = Partial<HeroIntegrationsProps>;
 
 const defaultProps: HeroIntegrationsProps = {
-  kicker: "Just Copy Paste",
+  kicker: "Hi I'm",
   badgeIcon: {
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/shadcn-ui-icon.svg",
     alt: "shadcn/ui",
   },
-  heading: "Blocks that connect your workflow.",
-  headingAccent: "Stay Productive",
+  heading: "Yashwant Belgahe",
+  headingAccent: "SOFTWARE ENGINEER",
   description:
-    "Connect your favorite tools to to the worlds largest collection of Shadcn blocks and components.",
+    "I am a passionate software engineer with 2+ years of experience in developing high-quality software applications. I am a quick learner and a team player, with a strong ability to solve complex problems.",
   buttons: {
     primary: {
       text: "Connect",
@@ -205,7 +205,7 @@ const Hero202 = (props: Props) => {
   const rings = orbitRingsFromPool(pool);
 
   return (
-    <section className={cn("bg-background py-32", className)}>
+    <section className={cn("bg-background py-32 pt-92", className)}>
       <div className="container">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex max-w-xl flex-col gap-6 lg:max-w-lg">
