@@ -1,6 +1,10 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { OrbitingCircles } from "@/vendors/ui/orbiting-circles";
 import { Button } from "@/vendors/ui/button";
 
+import { BackgroundPattern19Overlay } from "@/components/section/background-pattern19";
 import { cn } from "@/lib/utils";
 
 interface Image {
@@ -88,7 +92,10 @@ const defaultProps: HeroIntegrationsProps = {
       src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/google-icon.svg",
       alt: "Google",
     },
-    { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/jira-icon.svg", alt: "Jira" },
+    {
+      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/jira-icon.svg",
+      alt: "Jira",
+    },
     {
       src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/notion-icon.svg",
       alt: "Notion",
@@ -105,7 +112,10 @@ const defaultProps: HeroIntegrationsProps = {
       src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/sketch-icon.svg",
       alt: "Sketch",
     },
-    { src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/slack-icon.svg", alt: "Slack" },
+    {
+      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/slack-icon.svg",
+      alt: "Slack",
+    },
     {
       src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/integrations/spotify-icon.svg",
       alt: "Spotify",
@@ -205,8 +215,9 @@ const Hero202 = (props: Props) => {
   const rings = orbitRingsFromPool(pool);
 
   return (
-    <section className={cn("bg-background py-32 pt-92", className)}>
-      <div className="container">
+    <section className={cn("relative overflow-hidden bg-background py-32 pt-50", className)}>
+      <BackgroundPattern19Overlay />
+      <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex max-w-xl flex-col gap-6 lg:max-w-lg">
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
@@ -217,16 +228,18 @@ const Hero202 = (props: Props) => {
               />
               {kicker}
             </div>
-
-            <h1 className="text-4xl font-semibold tracking-tight text-pretty text-foreground lg:text-5xl xl:text-6xl">
-              {heading}
-              {accent ? (
-                <>
-                  {" "}
-                  <span className="text-muted-foreground">{accent}</span>
-                </>
-              ) : null}
-            </h1>
+            <div className="inline-block text-4xl font-semibold tracking-tight text-pretty text-foreground lg:text-5xl xl:text-6xl cursor-pointer">
+              <motion.h1
+                whileHover={{ x: 8, y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {heading}
+              </motion.h1>
+              <>
+                {" "}
+                <span className="text-muted-foreground">{accent}</span>
+              </>
+            </div>
 
             {description ? (
               <p className="max-w-2xl text-balance text-muted-foreground lg:text-lg">
@@ -236,10 +249,23 @@ const Hero202 = (props: Props) => {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               {buttons?.primary && (
-                <Button size="lg" render={<a href={buttons.primary.url} />} nativeButton={false}>{buttons.primary.text}</Button>
+                <Button
+                  size="lg"
+                  render={<a href={buttons.primary.url} />}
+                  nativeButton={false}
+                >
+                  {buttons.primary.text}
+                </Button>
               )}
               {buttons?.secondary && (
-                <Button variant="outline" size="lg" render={<a href={buttons.secondary.url} />} nativeButton={false}>{buttons.secondary.text}</Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  render={<a href={buttons.secondary.url} />}
+                  nativeButton={false}
+                >
+                  {buttons.secondary.text}
+                </Button>
               )}
             </div>
           </div>
