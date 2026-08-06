@@ -235,7 +235,7 @@ const Hero202 = (props: Props) => {
               </motion.h1>
               <>
                 {" "}
-                <span className="text-muted-foreground">{accent}</span>
+                <span className="block text-xl font-medium text-muted-foreground lg:text-4xl mt-2">{accent}</span>
               </>
             </div>
 
