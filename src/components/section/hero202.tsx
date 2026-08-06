@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { OrbitingCircles } from "@/vendors/ui/orbiting-circles";
 import { Button } from "@/vendors/ui/button";
 
-import { BackgroundPattern19Overlay } from "@/components/section/background-pattern19";
 import { cn } from "@/lib/utils";
 
 interface Image {
@@ -216,7 +215,6 @@ const Hero202 = (props: Props) => {
 
   return (
     <section className={cn("relative overflow-hidden bg-background py-32 pt-50", className)}>
-      <BackgroundPattern19Overlay />
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex max-w-xl flex-col gap-6 lg:max-w-lg">
