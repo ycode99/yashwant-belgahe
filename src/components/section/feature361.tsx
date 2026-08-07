@@ -24,7 +24,7 @@ const defaultProps: Feature361Props = {
     {
       icon: <MapPin className="size-5" />,
       title: "Location",
-      description: "Pune, Maharashtra, India",
+      description: "Raipur, Chhattisgarh, India",
     },
     {
       icon: <FaLinkedin className="size-5" />,
