@@ -7,9 +7,9 @@ interface About6Props {
 
 const About6 = ({ className }: About6Props) => {
   return (
-    <section className={cn("pt-20 pb-4 lg:pt-31 lg:pb-6", className)}>
+    <section className={cn("pt-20 pb-4 lg:pt-31 lg:pb-6 bg-secondary", className)}>
       <div className="container">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:mb-8 lg:text-6xl">
             About Us
           </h1>

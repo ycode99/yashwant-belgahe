@@ -57,7 +57,7 @@ const Feature361 = (props: Props) => {
   const items = (features ?? []).slice(0, MAX_FEATURES);
 
   return (
-    <section className={cn("py-32 pt-5 pb-5", className)}>
+    <section className={cn("py-32 pt-5 pb-32 bg-secondary", className)}>
       <div className="container">
         {(heading || description) && (
           <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center gap-4 text-center">
