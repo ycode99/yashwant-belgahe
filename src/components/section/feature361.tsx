@@ -41,8 +41,8 @@ const defaultProps: Feature361Props = {
     {
       icon: <Mail className="size-5" />,
       title: "Email",
-      href: "mailto:yashwantbelgahe@gmail.com",
-      description: "yashwantbelgahe@gmail.com",
+      href: "mailto:yashbelgahe99@gmail.com",
+      description: "yashbelgahe99@gmail.com",
     },
   ],
 };
@@ -78,22 +78,11 @@ const Feature361 = (props: Props) => {
                 <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                   {feature.icon}
                 </div>
-                <h3 className="font-medium tracking-tight">
-                  {feature.href ? (
-                    <a
-                      href={feature.href}
-                      target={feature.href.startsWith("http") ? "_blank" : undefined}
-                      rel={feature.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="hover:underline transition-colors"
-                    >
-                      {feature.title}
-                    </a>
-                  ) : (
-                    feature.title
-                  )}
+                <h3 className="text-sm text-muted-foreground">
+                  {feature.title}
                 </h3>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="font-medium tracking-tight text-foreground">
                 {feature.href ? (
                   <a
                     href={feature.href}
