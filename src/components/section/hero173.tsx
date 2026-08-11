@@ -91,15 +91,17 @@ const Hero173 = (props: Props) => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="flex flex-col gap-6">
-              {badge && (
-                <p className="text-sm font-medium tracking-wider text-muted-foreground">
-                  {badge.text}
-                </p>
-              )}
               <div className="flex max-w-3xl flex-col gap-6">
-                <h1 className="text-4xl leading-tight font-medium md:text-5xl xl:text-6xl">
-                  {heading}
-                </h1>
+                <div>
+                  {badge && (
+                    <p className="text-2xl font-medium tracking-wider text-muted-foreground mb-1">
+                      {badge.text}
+                    </p>
+                  )}
+                  <h1 className="text-4xl leading-tight font-medium md:text-5xl xl:text-6xl">
+                    {heading}
+                  </h1>
+                </div>
                 <p className="text-xl text-balance text-muted-foreground">
                   {description}
                 </p>
