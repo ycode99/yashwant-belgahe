@@ -9,6 +9,7 @@ interface Logo {
 
 interface LogosGridStaticProps {
   heading?: string;
+  subtitle?: string;
   logos: Logo[];
   className?: string;
 }

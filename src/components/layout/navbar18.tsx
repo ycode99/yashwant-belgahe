@@ -107,17 +107,34 @@ interface Navbar18Props {
 }
 
 const Navbar18 = ({ className }: Navbar18Props) => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section
+    <header
       className={cn(
-        "relative mx-auto flex max-w-full items-center justify-between border border-t-0 bg-muted px-6 py-3 md:w-fit md:rounded-b-2xl lg:gap-4",
+        "sticky top-0 z-50 mx-auto flex w-full max-w-7xl items-center justify-between border border-t-0 transition-all duration-300 px-8 py-3.5 md:px-12 md:rounded-b-2xl lg:gap-8",
+        isScrolled
+          ? "bg-background/40 backdrop-blur-md border-border/40 shadow-md"
+          : "bg-muted/90 backdrop-blur-sm border-border/80 shadow-sm",
         className,
       )}
     >
       <a href={NAV_LOGO.url} className="flex items-center gap-1">
         <img
           src={NAV_LOGO.src}
-          className="max-h-5 dark:invert"
+          className="max-h-6 dark:invert"
           alt={NAV_LOGO.alt}
         />
       </a>
@@ -129,7 +146,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
           {NAV_ITEMS.map((item, index) =>
             item.hasSubmenu ? (
               <NavigationMenuItem key={index} className="rounded-2xl">
-                <NavigationMenuTrigger className="bg-transparent px-2 py-1 text-xs">
+                <NavigationMenuTrigger className="bg-transparent px-3 py-1.5 text-sm font-medium">
                   {item.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="rounded-2xl">
@@ -159,7 +176,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
                   href={item.link}
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    "bg-transparent px-3 py-1.5 text-xs",
+                    "bg-transparent px-3 py-1.5 text-sm font-medium",
                   )}
                 >
                   {item.name}
@@ -173,12 +190,12 @@ const Navbar18 = ({ className }: Navbar18Props) => {
       <div className="hidden md:block">
         <Button
           variant="outline"
-          className="h-auto rounded-lg px-3 py-1.5 text-xs"
+          className="h-auto rounded-lg px-4 py-2 text-sm font-medium"
         >
           Log in
         </Button>
       </div>
-    </section>
+    </header>
   );
 };
 
@@ -189,9 +206,9 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink render={<a ref={ref} className={cn(
-                      "flex flex-col items-start space-y-1 rounded-md p-2 text-xs leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                      "flex flex-col items-start space-y-1 rounded-md p-2 text-sm leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                       className,
-                    )} {...props} />}><div className="text-xs leading-none font-medium">{title}</div><p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+                    )} {...props} />}><div className="text-sm leading-none font-medium">{title}</div><p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                       {children}
                     </p></NavigationMenuLink>
     </li>
@@ -204,7 +221,7 @@ const MobileNav = () => {
     <div className="mr-2 flex items-center justify-center md:hidden">
       <Popover>
         <PopoverTrigger>
-          <Menu className="size-5 text-foreground" />
+          <Menu className="size-6 text-foreground" />
         </PopoverTrigger>
 
         <PopoverContent
@@ -212,7 +229,7 @@ const MobileNav = () => {
           className="w-screen max-w-xs overflow-hidden"
         >
           <div className="w-full bg-card/80 pt-2 text-foreground backdrop-blur-md">
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion className="w-full">
               {NAV_ITEMS.map((navItem, idx) =>
                 navItem.hasSubmenu ? (
                   <AccordionItem
@@ -220,7 +237,7 @@ const MobileNav = () => {
                     value={navItem.name}
                     className="border-b-0"
                   >
-                    <AccordionTrigger className="px-4 py-3 text-xs hover:bg-accent hover:no-underline">
+                    <AccordionTrigger className="px-4 py-3 text-sm font-medium hover:bg-accent hover:no-underline">
                       <span className="text-foreground">{navItem.name}</span>
                     </AccordionTrigger>
                     <AccordionContent className="rounded-2xl">
@@ -230,7 +247,7 @@ const MobileNav = () => {
                             navItem.submenu.map((sub, subIdx) => (
                               <li
                                 key={sub.title || subIdx}
-                                className="px-2 py-2 text-xs hover:bg-accent"
+                                className="px-2 py-2 text-sm hover:bg-accent"
                               >
                                 <a href={sub.href} className="block">
                                   {sub.title}
@@ -244,7 +261,7 @@ const MobileNav = () => {
                 ) : (
                   <div
                     key={idx}
-                    className="rounded-lg px-4 py-3 text-xs hover:bg-accent"
+                    className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent"
                   >
                     <a
                       href={navItem.link}
@@ -257,7 +274,7 @@ const MobileNav = () => {
               )}
             </Accordion>
             <div className="flex flex-col gap-2 py-2">
-              <Button variant="secondary" className="px-3 text-xs">
+              <Button variant="secondary" className="px-4 py-2 text-sm font-medium">
                 Log in
               </Button>
             </div>
