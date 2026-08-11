@@ -124,10 +124,10 @@ const Navbar18 = ({ className }: Navbar18Props) => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 mx-auto flex w-full max-w-7xl items-center justify-between border border-t-0 transition-all duration-300 px-8 py-3.5 md:px-12 md:rounded-b-2xl lg:gap-8",
+        "sticky top-0 z-50 mx-auto flex w-full container items-center justify-between transition-all duration-300 px-8 py-3.5 md:px-12 lg:gap-8",
         isScrolled
-          ? "bg-background/40 backdrop-blur-md border-border/40 shadow-md"
-          : "bg-muted/90 backdrop-blur-sm border-border/80 shadow-sm",
+          ? "bg-background/40 backdrop-blur-md border-border/40"
+          : "bg-muted/90 backdrop-blur-sm border-border/80",
         className,
       )}
     >
