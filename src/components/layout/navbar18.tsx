@@ -25,6 +25,7 @@ import {
   PopoverTrigger,
 } from "@/vendors/ui/popover";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/section/theme-toggle";
 
 const NAV_LOGO = {
   url: "https://www.shadcnblocks.com",
@@ -139,13 +140,16 @@ const Navbar18 = ({ className }: Navbar18Props) => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="hidden md:block">
-        <Button
-          variant="outline"
-          className="h-auto rounded-lg px-4 py-2 text-sm font-medium"
-        >
-          Log in
-        </Button>
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <div className="hidden md:block">
+          <Button
+            variant="outline"
+            className="h-auto rounded-lg px-4 py-2 text-sm font-medium"
+          >
+            Log in
+          </Button>
+        </div>
       </div>
     </header>
   );
