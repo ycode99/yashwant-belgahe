@@ -1,4 +1,5 @@
 import { About6 } from "@/components/section/about6";
+import { Contact21 } from "@/components/section/contact21";
 import { Experience5 } from "@/components/section/experience5";
 import { Feature361 } from "@/components/section/feature361";
 import { Hero202 } from "@/components/section/hero202";
@@ -12,6 +13,7 @@ export default function Home() {
       <Feature361 />
       <Experience5 />
       <Timeline5 />
+      <Contact21 />
     </>
   );
 }
