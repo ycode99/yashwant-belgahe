@@ -10,7 +10,7 @@ const About6 = ({ className }: About6Props) => {
     <section className={cn("pt-20 pb-4 lg:pt-31 lg:pb-6 bg-secondary", className)}>
       <div className="container">
         <div className="mx-auto">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:mb-8 lg:text-6xl">
+          <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:mb-8 lg:text-5xl">
             About Us
           </h1>
           <p className="mb-8 text-muted-foreground text-lg md:text-xl lg:text-2xl leading-relaxed">

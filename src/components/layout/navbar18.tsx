@@ -33,77 +33,25 @@ const NAV_LOGO = {
   title: "Shadcnblocks.com",
 };
 
-const NAV_ITEMS = [
-  // {
-  //   name: "Products",
-  //   link: "/",
-  //   hasSubmenu: true,
-  //   submenu: [
-  //     {
-  //       title: "Introduction",
-  //       href: "/docs",
-  //       description:
-  //         "Re-usable components built using Radix UI and Tailwind CSS.",
-  //     },
-  //     {
-  //       title: "Installation",
-  //       href: "/docs/installation",
-  //       description: "How to install dependencies and structure your app.",
-  //     },
-  //     {
-  //       title: "Typography",
-  //       href: "/docs/primitives/typography",
-  //       description: "Styles for headings, paragraphs, lists...etc",
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: "Resources",
-  //   link: "/",
-  //   hasSubmenu: true,
-  //   submenu: [
-  //     {
-  //       title: "Alert Dialog",
-  //       href: "/docs/primitives/alert-dialog",
-  //       description:
-  //         "A modal dialog that interrupts the user with important content and expects a response.",
-  //     },
-  //     {
-  //       title: "Hover Card",
-  //       href: "/docs/primitives/hover-card",
-  //       description:
-  //         "For sighted users to preview content available behind a link.",
-  //     },
-  //     {
-  //       title: "Progress",
-  //       href: "/docs/primitives/progress",
-  //       description:
-  //         "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  //     },
-  //     {
-  //       title: "Scroll-area",
-  //       href: "/docs/primitives/scroll-area",
-  //       description: "Visually or semantically separates content.",
-  //     },
-  //     {
-  //       title: "Tabs",
-  //       href: "/docs/primitives/tabs",
-  //       description:
-  //         "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  //     },
-  //     {
-  //       title: "Tooltip",
-  //       href: "/docs/primitives/tooltip",
-  //       description:
-  //         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  //     },
-  //   ],
-  // },
+interface SubMenuItem {
+  title: string;
+  href: string;
+  description?: string;
+}
+
+interface NavItem {
+  name: string;
+  link: string;
+  hasSubmenu?: boolean;
+  submenu?: SubMenuItem[];
+}
+
+const NAV_ITEMS: NavItem[] = [
   { name: "Home", link: "/" },
-  { name: "Experience", link: "/projects" },
-  { name: "Projects", link: "/projects" },
-  { name: "About", link: "/about" },
-  { name: "Contact", link: "/contact" },
+  { name: "Experience", link: "#experience" },
+  { name: "Projects", link: "#projects" },
+  { name: "About", link: "#about" },
+  { name: "Contact", link: "#contact" },
 ];
 
 interface Navbar18Props {
@@ -162,7 +110,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
                         : "md:w-[150px] lg:w-[200px]",
                     )}
                   >
-                    {item.submenu.map((sub, i) => (
+                    {item.submenu?.map((sub, i) => (
                       <ListItem
                         key={sub.title || i}
                         title={sub.title}

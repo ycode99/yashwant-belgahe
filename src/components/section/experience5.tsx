@@ -53,7 +53,7 @@ const Experience5 = ({
     <section className={cn("py-16 md:py-32", className)}>
       <div className="container">
         <div className="mx-auto">
-          <h2 className="mb-12 font-serif text-4xl leading-tight font-medium md:text-7xl">
+          <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             {title}
           </h2>
 

@@ -94,7 +94,7 @@ const Logos33 = (props: Props) => {
       <div className="container mx-auto">
         <div className="flex flex-col items-start gap-8 lg:gap-10">
           {heading && (
-            <h2 className="text-left text-xl font-semibold tracking-tight text-balance md:text-2xl lg:text-3xl">
+            <h2 className="text-left text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               {heading}
             </h2>
           )}

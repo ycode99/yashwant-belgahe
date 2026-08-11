@@ -90,7 +90,7 @@ const Contact21 = ({ className, onSubmit }: Contact21Props) => {
             </div>
           </div>
           <div className="col-span-4 flex w-full flex-col gap-2 lg:pl-10">
-            <h1 className="mb-7 text-6xl font-semibold tracking-tight lg:text-5xl">
+            <h1 className="mb-7 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               Get in Touch
             </h1>
 
