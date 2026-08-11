@@ -45,13 +45,11 @@ const Timeline5 = ({ className }: Timeline5Props) => {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="max-w-lg">
               <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl">
-                Unlock{" "}
+                {" "}
                 <span className="relative inline-block">
-                  <span className="text-muted-foreground">AI</span>
+                  <span className="text-muted-foreground">Projects</span>
                   <Sparkles className="absolute -top-2 -right-4 size-5 fill-yellow-500 stroke-none" />
                 </span>
-                <br />
-                for your existing workflows
               </h2>
               <p className="mt-12 text-base text-muted-foreground">
                 Seamlessly integrate AI into your workflows. Automate tasks,

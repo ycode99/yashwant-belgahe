@@ -71,11 +71,11 @@ const Footer16 = ({ className }: Footer16Props) => {
         <div className="grid gap-10 pb-6 md:grid-cols-2 md:pb-0">
           <div className="flex flex-col justify-start gap-8">
             {/* Logo */}
-            <a href="https://shadcnblocks.com">
+            <a href="https://ycode99.github.io/yashwant-belgahe/">
               <img
                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-wordmark-white.svg"
-                alt="Shadcnblocks"
-                title="Shadcnblocks"
+                alt="Yashwant Belgahe"
+                title="Yashwant Belgahe"
                 className="h-11"
               />
             </a>

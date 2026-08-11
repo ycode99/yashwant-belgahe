@@ -17,7 +17,7 @@ interface LogosGridStaticProps {
 type Props = Partial<LogosGridStaticProps>;
 
 const defaultProps: LogosGridStaticProps = {
-  heading: "Trusted by these companies",
+  heading: "Tech Stack",
   logos: [
     {
       src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/placeholder/logos/fictional-company-logo-1.svg",

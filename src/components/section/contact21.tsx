@@ -84,8 +84,8 @@ const Contact21 = ({ className, onSubmit }: Contact21Props) => {
                 alt="avatar"
               />
               <div>
-                <h3 className="text-lg font-medium tracking-tight">John Doe</h3>
-                <p className="text-sm text-foreground/40">Creative Director</p>
+                <h3 className="text-lg font-medium tracking-tight">Yashwant Belgahe</h3>
+                <p className="text-sm text-foreground/40">Software Engineer</p>
               </div>
             </div>
           </div>
