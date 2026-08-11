@@ -127,7 +127,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
         "sticky top-0 z-50 mx-auto flex items-center justify-between transition-all duration-300 px-8 py-3.5 md:px-12 lg:gap-8",
         isScrolled
           ? "w-full max-w-full rounded-none bg-background/40 backdrop-blur-md"
-          : "w-full max-w-7xl md:rounded-b-2xl bg-muted/90 backdrop-blur-sm",
+          : "w-full container md:rounded-b-2xl bg-muted/90 backdrop-blur-sm",
         className,
       )}
     >
