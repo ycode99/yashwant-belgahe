@@ -214,7 +214,7 @@ const Hero202 = (props: Props) => {
   const rings = orbitRingsFromPool(pool);
 
   return (
-    <section className={cn("relative overflow-hidden bg-background py-32 pt-50", className)}>
+    <section className={cn("relative overflow-hidden bg-background py-16 sm:py-24 lg:py-28", className)}>
       <div className="container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex max-w-xl flex-col gap-6 lg:max-w-lg">

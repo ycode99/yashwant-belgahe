@@ -143,7 +143,7 @@ const Navbar1 = ({
 }: Navbar1Props) => {
   return (
     <section
-      className={cn("py-4 fixed top-0 w-full z-50 bg-background", className)}
+      className={cn("py-4 sticky top-0 w-full z-50 bg-background border-b border-border/40", className)}
     >
       <div className="container">
         {/* Desktop Menu */}
