@@ -46,10 +46,10 @@ type Props = Partial<Hero173Props>;
 
 const defaultProps: Hero173Props = {
   badge: {
-    text: "Your Website Builder",
+    text: "Hi, I'm",
     announcement: "Check out our latest updates",
   },
-  heading: "Shadcn UI Components built for production",
+  heading: "Yashwant Belgahe",
   description:
     "Finely crafted components built with React, Tailwind and shadcn/ui. Developers can copy and paste these blocks directly into their project.",
   buttons: {
@@ -92,7 +92,7 @@ const Hero173 = (props: Props) => {
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
             <div className="flex flex-col gap-6">
               {badge && (
-                <p className="text-sm font-medium tracking-wider text-muted-foreground uppercase">
+                <p className="text-sm font-medium tracking-wider text-muted-foreground">
                   {badge.text}
                 </p>
               )}
@@ -106,14 +106,14 @@ const Hero173 = (props: Props) => {
               </div>
               <div className="flex flex-wrap gap-4 py-4">
                 {buttons?.primary && (
-                  <Button className="block h-fit w-fit rounded-sm px-5 py-3.5 text-sm font-medium tracking-wider text-nowrap uppercase" render={<a href={buttons.primary.url} />} nativeButton={false}>{buttons.primary.text}</Button>
+                  <Button className="block h-fit w-fit rounded-sm px-5 py-3.5 text-sm font-medium tracking-wider text-nowrap" render={<a href={buttons.primary.url} />} nativeButton={false}>{buttons.primary.text}</Button>
                 )}
                 {buttons?.secondary && (
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => setIsVideoOpen(true)}
-                    className="h-fit w-fit rounded-sm px-5 py-3.5 text-sm font-medium tracking-wider uppercase"
+                    className="h-fit w-fit rounded-sm px-5 py-3.5 text-sm font-medium tracking-wider"
                   >
                     <Play className="size-3 fill-foreground" />
                     {buttons.secondary.text}
