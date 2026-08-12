@@ -3,6 +3,7 @@
 import { Menu } from "lucide-react";
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   Accordion,
@@ -63,6 +64,7 @@ interface Navbar18Props {
 
 const Navbar18 = ({ className }: Navbar18Props) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -76,6 +78,31 @@ const Navbar18 = ({ className }: Navbar18Props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "/") {
+      if (pathname === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (href === "/blog" || href === "/blog/") {
+      if (pathname === "/blog" || pathname === "/blog/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (href.startsWith("/#")) {
+      const sectionId = href.replace("/#", "");
+      if (pathname === "/") {
+        e.preventDefault();
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -86,7 +113,11 @@ const Navbar18 = ({ className }: Navbar18Props) => {
         className,
       )}
     >
-      <Link href={NAV_LOGO.url} className="flex items-center gap-1">
+      <Link
+        href={NAV_LOGO.url}
+        onClick={(e) => handleNavClick(e, NAV_LOGO.url)}
+        className="flex items-center gap-1"
+      >
         <img
           src={NAV_LOGO.src}
           className="max-h-6 dark:invert"
@@ -94,7 +125,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
         />
       </Link>
 
-      <MobileNav />
+      <MobileNav handleNavClick={handleNavClick} />
 
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList className="h-full w-full">
@@ -131,6 +162,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
                   render={
                     <Link
                       href={item.link}
+                      onClick={(e) => handleNavClick(e, item.link)}
                       className={cn(
                         navigationMenuTriggerStyle(),
                         "bg-transparent px-3 py-1.5 text-sm font-medium",
@@ -190,7 +222,11 @@ const ListItem = React.forwardRef<
 });
 ListItem.displayName = "ListItem";
 
-const MobileNav = () => {
+interface MobileNavProps {
+  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
+}
+
+const MobileNav = ({ handleNavClick }: MobileNavProps) => {
   return (
     <div className="mr-2 flex items-center justify-center md:hidden">
       <Popover>
@@ -223,7 +259,11 @@ const MobileNav = () => {
                                 key={sub.title || subIdx}
                                 className="px-2 py-2 text-sm hover:bg-accent"
                               >
-                                <Link href={sub.href} className="block">
+                                <Link
+                                  href={sub.href}
+                                  onClick={(e) => handleNavClick(e, sub.href)}
+                                  className="block"
+                                >
                                   {sub.title}
                                 </Link>
                               </li>
@@ -239,6 +279,7 @@ const MobileNav = () => {
                   >
                     <Link
                       href={navItem.link}
+                      onClick={(e) => handleNavClick(e, navItem.link)}
                       className="flex items-center justify-between"
                     >
                       <span className="text-foreground">{navItem.name}</span>

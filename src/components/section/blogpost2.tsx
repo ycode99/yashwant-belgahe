@@ -7,7 +7,6 @@ import {
   Calendar,
   Clock,
   Tag,
-  BookOpen,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/vendors/ui/avatar";
 import { cn, getImageUrl } from "@/lib/utils";
@@ -130,40 +129,6 @@ const Blogpost2 = ({
                     #{tag}
                   </Badge>
                 ))}
-              </div>
-            )}
-
-            {/* Related Posts */}
-            {relatedPosts.length > 0 && (
-              <div className="pt-8 border-t space-y-4 mb-8">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="text-primary" size={18} />
-                  <h3 className="text-xl font-bold text-foreground">
-                    Related Chronicles ({post.category})
-                  </h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {relatedPosts.map((relPost) => (
-                    <Card
-                      key={relPost.slug}
-                      className="hover:border-primary/50 transition-all"
-                    >
-                      <CardHeader className="p-4 space-y-1.5">
-                        <Badge
-                          variant="secondary"
-                          className="w-fit text-[10px]"
-                        >
-                          {relPost.category}
-                        </Badge>
-                        <CardTitle className="text-sm font-bold line-clamp-2 hover:text-primary transition-colors">
-                          <Link href={`/blog/${relPost.slug}`}>
-                            {relPost.title}
-                          </Link>
-                        </CardTitle>
-                      </CardHeader>
-                    </Card>
-                  ))}
-                </div>
               </div>
             )}
 
