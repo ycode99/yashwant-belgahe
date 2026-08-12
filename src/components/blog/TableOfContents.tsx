@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { HeadingItem } from "@/lib/content";
 import { BookOpen, ListOrdered } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/vendors/ui/card";
@@ -13,6 +13,7 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ headings, articleTitle }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>("");
+  const navRef = useRef<HTMLElement | null>(null);
 
   const displayHeadings = useMemo(() => {
     if (!headings) return [];
@@ -21,6 +22,7 @@ export function TableOfContents({ headings, articleTitle }: TableOfContentsProps
     return headings.filter((h) => h.text.toLowerCase().trim() !== cleanTitle);
   }, [headings, articleTitle]);
 
+  // Observer to track which heading is currently visible in the main article
   useEffect(() => {
     if (!displayHeadings || displayHeadings.length === 0) return;
 
@@ -45,6 +47,29 @@ export function TableOfContents({ headings, articleTitle }: TableOfContentsProps
 
     return () => observer.disconnect();
   }, [displayHeadings]);
+
+  // Auto-scroll the Table of Contents list so that the active item stays centered in view
+  useEffect(() => {
+    if (!activeId || !navRef.current) return;
+
+    const activeElement = navRef.current.querySelector<HTMLAnchorElement>(
+      `[data-heading-id="${CSS.escape(activeId)}"]`
+    );
+
+    if (activeElement) {
+      const container = navRef.current;
+      const containerHeight = container.clientHeight;
+      const elementTop = activeElement.offsetTop;
+      const elementHeight = activeElement.offsetHeight;
+
+      const targetScrollTop = elementTop - containerHeight / 1.2 + elementHeight / 1.2;
+
+      container.scrollTo({
+        top: Math.max(0, targetScrollTop),
+        behavior: "smooth",
+      });
+    }
+  }, [activeId]);
 
   if (!displayHeadings || displayHeadings.length === 0) {
     return (
@@ -83,7 +108,10 @@ export function TableOfContents({ headings, articleTitle }: TableOfContentsProps
           <ListOrdered size={13} className="text-primary" /> On this page
         </p>
 
-        <nav className="flex flex-col gap-1 max-h-[50vh] overflow-y-auto pr-1 text-xs select-none">
+        <nav
+          ref={navRef}
+          className="flex flex-col gap-1 max-h-[50vh] overflow-y-auto pr-1 text-xs select-none scroll-smooth"
+        >
           {displayHeadings.map((heading, index) => {
             const isActive = activeId === heading.id;
             const indentClass =
@@ -93,6 +121,7 @@ export function TableOfContents({ headings, articleTitle }: TableOfContentsProps
               <a
                 key={`${heading.id}-${index}`}
                 href={`#${heading.id}`}
+                data-heading-id={heading.id}
                 onClick={(e) => handleHeadingClick(e, heading.id)}
                 className={`
                   block py-1.5 px-2.5 rounded-md transition-all leading-normal text-xs font-medium break-words

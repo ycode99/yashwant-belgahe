@@ -112,8 +112,9 @@ const Blogpost2 = ({
                   prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
                   prose-p:leading-relaxed prose-p:text-muted-foreground
                   prose-a:text-primary prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-primary/80
-                  prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-xs
-                  prose-pre:bg-zinc-950 prose-pre:text-zinc-100 prose-pre:p-4 prose-pre:rounded-xl prose-pre:border
+                  [&_:not(pre)>code]:bg-muted [&_:not(pre)>code]:text-foreground [&_:not(pre)>code]:px-1.5 [&_:not(pre)>code]:py-0.5 [&_:not(pre)>code]:rounded [&_:not(pre)>code]:font-mono [&_:not(pre)>code]:text-xs [&_:not(pre)>code]:border [&_:not(pre)>code]:before:content-none [&_:not(pre)>code]:after:content-none
+                  [&_pre]:bg-zinc-950 [&_pre]:text-zinc-50 [&_pre]:p-4 [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-zinc-800/80 [&_pre]:overflow-x-auto [&_pre]:my-6
+                  [&_pre_code]:bg-transparent [&_pre_code]:text-zinc-50 [&_pre_code]:p-0 [&_pre_code]:border-none [&_pre_code]:font-mono [&_pre_code]:text-xs [&_pre_code]:leading-relaxed [&_pre_code]:before:content-none [&_pre_code]:after:content-none
                   prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-xl prose-img:shadow-md
                 "
