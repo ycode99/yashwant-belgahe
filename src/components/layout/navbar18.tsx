@@ -49,11 +49,11 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Home", link: "/" },
-  { name: "Experience", link: "#experience" },
-  { name: "Projects", link: "#projects" },
-  { name: "About", link: "#about" },
-  { name: "Contact", link: "#contact" },
-  { name: "Blog", link: "#blog" },
+  { name: "Experience", link: "/#experience" },
+  { name: "Projects", link: "/#projects" },
+  { name: "About", link: "/#about" },
+  { name: "Contact", link: "/#contact" },
+  { name: "Blog", link: "/blog" },
 ];
 
 interface Navbar18Props {
