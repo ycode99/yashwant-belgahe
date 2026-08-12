@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { getAllBlogPosts } from "@/lib/content";
-import { BlogList } from "@/components/blog/BlogList";
+import { Blog27 } from "@/components/section/blog27";
 
 export const metadata: Metadata = {
   title: "Blog & Technical Chronicles — Yashwant Belgahe",
@@ -38,24 +38,12 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col gap-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
       />
-
-      {/* Page Masthead Header */}
-      <div className="space-y-4 text-center md:text-left border-b pb-8">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-          Technical Blog & Chronicles
-        </h1>
-        <p className="text-base sm:text-lg text-muted-foreground max-w-3xl">
-          Thoughts, guides, and practical tutorials on engineering scalable web applications, modern developer workflows, and system architecture.
-        </p>
-      </div>
-
-      {/* Render Blog List with Search & Filtering */}
-      <BlogList initialPosts={posts} />
-    </div>
+      <Blog27 posts={posts} />
+    </>
   );
 }
