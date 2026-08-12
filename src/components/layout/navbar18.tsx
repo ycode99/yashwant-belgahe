@@ -2,6 +2,7 @@
 
 import { Menu } from "lucide-react";
 import React from "react";
+import Link from "next/link";
 
 import {
   Accordion,
@@ -28,10 +29,10 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/section/theme-toggle";
 
 const NAV_LOGO = {
-  url: "https://www.shadcnblocks.com",
+  url: "/",
   src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
-  alt: "logo",
-  title: "Shadcnblocks.com",
+  alt: "Yashwant Belgahe",
+  title: "Yashwant Belgahe",
 };
 
 interface SubMenuItem {
@@ -85,13 +86,13 @@ const Navbar18 = ({ className }: Navbar18Props) => {
         className,
       )}
     >
-      <a href={NAV_LOGO.url} className="flex items-center gap-1">
+      <Link href={NAV_LOGO.url} className="flex items-center gap-1">
         <img
           src={NAV_LOGO.src}
           className="max-h-6 dark:invert"
           alt={NAV_LOGO.alt}
         />
-      </a>
+      </Link>
 
       <MobileNav />
 
@@ -127,11 +128,15 @@ const Navbar18 = ({ className }: Navbar18Props) => {
             ) : (
               <NavigationMenuItem key={index}>
                 <NavigationMenuLink
-                  href={item.link}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent px-3 py-1.5 text-sm font-medium",
-                  )}
+                  render={
+                    <Link
+                      href={item.link}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent px-3 py-1.5 text-sm font-medium",
+                      )}
+                    />
+                  }
                 >
                   {item.name}
                 </NavigationMenuLink>
@@ -157,17 +162,29 @@ const Navbar18 = ({ className }: Navbar18Props) => {
 };
 
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  HTMLAnchorElement,
+  React.ComponentPropsWithoutRef<typeof Link> & { title: string }
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink render={<a ref={ref} className={cn(
-                      "flex flex-col items-start space-y-1 rounded-md p-2 text-sm leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                      className,
-                    )} {...props} />}><div className="text-sm leading-none font-medium">{title}</div><p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
-                      {children}
-                    </p></NavigationMenuLink>
+      <NavigationMenuLink
+        render={
+          <Link
+            ref={ref}
+            href={href}
+            className={cn(
+              "flex flex-col items-start space-y-1 rounded-md p-2 text-sm leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className,
+            )}
+            {...props}
+          />
+        }
+      >
+        <div className="text-sm leading-none font-medium">{title}</div>
+        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+          {children}
+        </p>
+      </NavigationMenuLink>
     </li>
   );
 });
@@ -206,9 +223,9 @@ const MobileNav = () => {
                                 key={sub.title || subIdx}
                                 className="px-2 py-2 text-sm hover:bg-accent"
                               >
-                                <a href={sub.href} className="block">
+                                <Link href={sub.href} className="block">
                                   {sub.title}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                         </ul>
@@ -220,12 +237,12 @@ const MobileNav = () => {
                     key={idx}
                     className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-accent"
                   >
-                    <a
+                    <Link
                       href={navItem.link}
                       className="flex items-center justify-between"
                     >
                       <span className="text-foreground">{navItem.name}</span>
-                    </a>
+                    </Link>
                   </div>
                 ),
               )}

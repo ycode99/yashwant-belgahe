@@ -160,7 +160,9 @@ const BreadcrumbBlog = ({ breadcrumb }: BreadcrumbBlogProps) => {
           return (
             <Fragment key={`${item.label}`}>
               <BreadcrumbItem>
-                <BreadcrumbLink href={item.link}>{item.label}</BreadcrumbLink>
+                <BreadcrumbLink render={<Link href={item.link} />}>
+                  {item.label}
+                </BreadcrumbLink>
               </BreadcrumbItem>
               {i < breadcrumb.length - 1 ? (
                 <BreadcrumbSeparator>

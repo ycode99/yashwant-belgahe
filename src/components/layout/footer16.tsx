@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaFacebook, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 import {
@@ -43,7 +44,7 @@ const NAVIGATION = [
       { name: "Help", href: "#" },
       { name: "API", href: "#" },
       { name: "Guide", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "Blog", href: "/blog" },
       { name: "Updates", href: "#" },
     ],
   },
@@ -71,14 +72,14 @@ const Footer16 = ({ className }: Footer16Props) => {
         <div className="grid gap-10 pb-6 md:grid-cols-2 md:pb-0">
           <div className="flex flex-col justify-start gap-8">
             {/* Logo */}
-            <a href="https://ycode99.github.io/yashwant-belgahe/">
+            <Link href="/">
               <img
                 src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-wordmark-white.svg"
                 alt="Yashwant Belgahe"
                 title="Yashwant Belgahe"
                 className="h-11"
               />
-            </a>
+            </Link>
             <div className="flex items-center justify-start gap-4 md:flex-row">
               {SOCIAL_LINKS.map((item, i) => (
                 <Button
@@ -100,15 +101,25 @@ const Footer16 = ({ className }: Footer16Props) => {
                   <h6 className="mb-2 text-sm font-semibold text-foreground uppercase">
                     {section.title}
                   </h6>
-                  {section.links.map((link) => (
-                    <a
-                      className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
-                      key={link.name}
-                      href={link.href}
-                    >
-                      {link.name}
-                    </a>
-                  ))}
+                  {section.links.map((link) =>
+                    link.href.startsWith("/") ? (
+                      <Link
+                        className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
+                        key={link.name}
+                        href={link.href}
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
+                        key={link.name}
+                        href={link.href}
+                      >
+                        {link.name}
+                      </a>
+                    )
+                  )}
                 </div>
               ))}
             </div>
@@ -120,15 +131,25 @@ const Footer16 = ({ className }: Footer16Props) => {
                       {section.title}
                     </AccordionTrigger>
                     <AccordionContent className="flex flex-col gap-2">
-                      {section.links.map((link) => (
-                        <a
-                          className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
-                          key={link.name}
-                          href={link.href}
-                        >
-                          {link.name}
-                        </a>
-                      ))}
+                      {section.links.map((link) =>
+                        link.href.startsWith("/") ? (
+                          <Link
+                            className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
+                            key={link.name}
+                            href={link.href}
+                          >
+                            {link.name}
+                          </Link>
+                        ) : (
+                          <a
+                            className="text-sm font-medium text-muted-foreground transition-colors duration-200 ease-in-out hover:text-foreground"
+                            key={link.name}
+                            href={link.href}
+                          >
+                            {link.name}
+                          </a>
+                        )
+                      )}
                     </AccordionContent>
                   </AccordionItem>
                 ))}

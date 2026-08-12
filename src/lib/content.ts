@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { Marked } from "marked";
+import { getImageUrl } from "./utils";
 
 const blogDirectory = path.join(process.cwd(), "content", "blog");
 
@@ -90,7 +91,8 @@ export function parseMarkdownContent(rawMarkdown: string): { contentHtml: string
         const isExternal = href.startsWith("http://") || href.startsWith("https://") || href.startsWith("//");
         const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
         const titleAttr = title ? ` title="${title}"` : "";
-        return `<a href="${href}"${titleAttr}${targetAttr}>${text}</a>`;
+        const finalHref = isExternal || href.startsWith("#") ? href : getImageUrl(href);
+        return `<a href="${finalHref}"${titleAttr}${targetAttr}>${text}</a>`;
       },
     },
   });
