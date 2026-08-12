@@ -10,7 +10,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/vendors/ui/avatar";
-import { cn } from "@/lib/utils";
+import { cn, getImageUrl } from "@/lib/utils";
 import type { BlogPostData } from "@/lib/content";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
@@ -96,7 +96,7 @@ const Blogpost2 = ({
           <article className="flex-1 w-full max-w-4xl">
             {post.coverImage && (
               <img
-                src={post.coverImage}
+                src={getImageUrl(post.coverImage)}
                 alt={post.title}
                 className="mt-0 mb-8 aspect-video w-full rounded-xl object-cover border shadow-sm"
               />

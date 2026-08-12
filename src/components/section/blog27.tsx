@@ -15,7 +15,7 @@ import { Button } from "@/vendors/ui/button";
 import { Card, CardContent } from "@/vendors/ui/card";
 import { Label } from "@/vendors/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/vendors/ui/radio-group";
-import { cn } from "@/lib/utils";
+import { cn, getImageUrl } from "@/lib/utils";
 import type { BlogPostData } from "@/lib/content";
 
 interface BreadcrumbItem {
@@ -182,7 +182,7 @@ const BlogCard = ({ title, thumbnail, summary, link, cta }: Post) => {
         <CardContent className="flex flex-1 flex-col p-0">
           <AspectRatio ratio={1.520833333} className="overflow-hidden bg-muted rounded-t-lg">
             <img
-              src={thumbnail}
+              src={getImageUrl(thumbnail)}
               alt={title}
               className="block size-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
