@@ -1,7 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Calendar, Clock, Tag, BookOpen } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Clock,
+  Tag,
+  BookOpen,
+} from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/vendors/ui/avatar";
 import { cn } from "@/lib/utils";
 import type { BlogPostData } from "@/lib/content";
@@ -30,9 +37,9 @@ const Blogpost2 = ({
       <ReadingProgress />
 
       <div className="container">
-        <div className="relative flex flex-col justify-between gap-10 lg:flex-row items-start">
+        <div className="relative flex flex-col justify-between gap-10 lg:flex-row items-stretch">
           {/* Sidebar */}
-        <aside className="w-full lg:w-[300px] xl:w-[360px] space-y-6 flex-shrink-0">
+          <aside className="w-full lg:w-[300px] xl:w-[360px] space-y-6 shrink-0 self-stretch">
             <Link
               className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               href="/blog"
@@ -54,22 +61,34 @@ const Blogpost2 = ({
             {/* Author & Meta Box */}
             <div className="flex items-center gap-3 p-3 rounded-lg border bg-card/60">
               <Avatar className="size-9 rounded-full border">
-                <AvatarImage src="https://github.com/yashwant-belgahe.png" alt="Yashwant Belgahe" />
+                <AvatarImage
+                  src="https://github.com/yashwant-belgahe.png"
+                  alt="Yashwant Belgahe"
+                />
                 <AvatarFallback>YB</AvatarFallback>
               </Avatar>
               <div className="text-xs">
-                <h2 className="font-semibold text-foreground">Yashwant Belgahe</h2>
+                <h2 className="font-semibold text-foreground">
+                  Yashwant Belgahe
+                </h2>
                 <div className="flex items-center gap-2 text-muted-foreground mt-0.5">
-                  <span className="flex items-center gap-1"><Calendar size={11} /> {post.date}</span>
+                  <span className="flex items-center gap-1">
+                    <Calendar size={11} /> {post.date}
+                  </span>
                   <span>•</span>
-                  <span className="flex items-center gap-1"><Clock size={11} /> {post.readTime}</span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={11} /> {post.readTime}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Sticky Table of Contents */}
-         <div className="lg:sticky lg:top-20 lg:z-30">
-              <TableOfContents headings={post.headings} articleTitle={post.title} />
+            <div className="lg:sticky lg:top-20 lg:z-30">
+              <TableOfContents
+                headings={post.headings}
+                articleTitle={post.title}
+              />
             </div>
           </aside>
 
@@ -124,13 +143,21 @@ const Blogpost2 = ({
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {relatedPosts.map((relPost) => (
-                    <Card key={relPost.slug} className="hover:border-primary/50 transition-all">
+                    <Card
+                      key={relPost.slug}
+                      className="hover:border-primary/50 transition-all"
+                    >
                       <CardHeader className="p-4 space-y-1.5">
-                        <Badge variant="secondary" className="w-fit text-[10px]">
+                        <Badge
+                          variant="secondary"
+                          className="w-fit text-[10px]"
+                        >
                           {relPost.category}
                         </Badge>
                         <CardTitle className="text-sm font-bold line-clamp-2 hover:text-primary transition-colors">
-                          <Link href={`/blog/${relPost.slug}`}>{relPost.title}</Link>
+                          <Link href={`/blog/${relPost.slug}`}>
+                            {relPost.title}
+                          </Link>
                         </CardTitle>
                       </CardHeader>
                     </Card>
@@ -157,7 +184,10 @@ const Blogpost2 = ({
               )}
 
               {nextPost ? (
-                <Link href={`/blog/${nextPost.slug}`} className="group text-right">
+                <Link
+                  href={`/blog/${nextPost.slug}`}
+                  className="group text-right"
+                >
                   <Card className="p-4 hover:border-primary/50 transition-all">
                     <span className="text-xs font-medium text-primary flex items-center justify-end gap-1 mb-1">
                       Next Story <ChevronRight size={14} />
