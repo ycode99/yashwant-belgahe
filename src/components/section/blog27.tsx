@@ -231,15 +231,15 @@ const Blog27 = ({ className, posts = [] }: Blog27Props) => {
 
   const primaryPostData: Post | null = useMemo(() => {
     if (allPosts.length === 0) return null;
-    const featured = allPosts.find((p) => p.featured) || allPosts[0];
+    const latestPost = allPosts[0];
     return {
-      category: featured.category,
-      title: featured.title,
-      summary: featured.description,
-      link: `/blog/${featured.slug}`,
+      category: latestPost.category,
+      title: latestPost.title,
+      summary: latestPost.description,
+      link: `/blog/${latestPost.slug}`,
       cta: "Read Article",
       thumbnail:
-        featured.coverImage ||
+        latestPost.coverImage ||
         "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
     };
   }, [allPosts]);
@@ -259,7 +259,7 @@ const Blog27 = ({ className, posts = [] }: Blog27Props) => {
 
   return (
     <section className={cn("pb-32", className)}>
-      <div className="bg-muted bg-[url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/dot-pattern-2.svg')] bg-[length:3.125rem_3.125rem] bg-repeat">
+      <div className=" bg-[url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/patterns/dot-pattern-2.svg')] bg-[length:3.125rem_3.125rem] bg-repeat">
         <div className="container flex flex-col items-start justify-start gap-16 py-20 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex w-full flex-col justify-between gap-12">
             <div className="flex w-full max-w-[36rem] flex-col gap-8">

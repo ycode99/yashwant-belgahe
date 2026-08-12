@@ -31,8 +31,8 @@ const Blogpost2 = ({
 
       <div className="container">
         <div className="relative flex flex-col justify-between gap-10 lg:flex-row items-start">
-          {/* Sticky Sidebar */}
-          <aside className="top-24 h-fit flex-shrink-0 lg:sticky lg:w-[300px] xl:w-[360px] space-y-6">
+          {/* Sidebar */}
+        <aside className="w-full lg:w-[300px] xl:w-[360px] space-y-6 flex-shrink-0">
             <Link
               className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               href="/blog"
@@ -67,8 +67,8 @@ const Blogpost2 = ({
               </div>
             </div>
 
-            {/* Table of Contents */}
-            <div className="pt-2">
+            {/* Sticky Table of Contents */}
+         <div className="lg:sticky lg:top-20 lg:z-30">
               <TableOfContents headings={post.headings} articleTitle={post.title} />
             </div>
           </aside>
