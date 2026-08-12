@@ -53,6 +53,7 @@ const NAV_ITEMS: NavItem[] = [
   { name: "Projects", link: "#projects" },
   { name: "About", link: "#about" },
   { name: "Contact", link: "#contact" },
+  { name: "Blog", link: "#blog" },
 ];
 
 interface Navbar18Props {
