@@ -74,7 +74,7 @@ const Footer16 = ({ className }: Footer16Props) => {
             {/* Logo */}
             <Link href="/">
               <img
-                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-wordmark-white.svg"
+                src="/footer_logo.svg"
                 alt="Yashwant Belgahe"
                 title="Yashwant Belgahe"
                 className="h-11"
@@ -160,7 +160,7 @@ const Footer16 = ({ className }: Footer16Props) => {
         <div className="overflow-hidden">
           <img
             className="w-full translate-y-2 opacity-10 md:translate-y-4 lg:translate-y-6 xl:translate-y-8"
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/shadcnblocks-giant-white-text.svg"
+            src="/Yashwant_Belgahe.svg"
             alt=""
           />
         </div>

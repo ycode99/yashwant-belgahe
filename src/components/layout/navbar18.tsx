@@ -31,7 +31,7 @@ import { ThemeToggle } from "@/components/section/theme-toggle";
 
 const NAV_LOGO = {
   url: "/",
-  src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
+  src: "/nav_logo.svg",
   alt: "Yashwant Belgahe",
   title: "Yashwant Belgahe",
 };
@@ -120,7 +120,7 @@ const Navbar18 = ({ className }: Navbar18Props) => {
       >
         <img
           src={NAV_LOGO.src}
-          className="max-h-6 dark:invert"
+          className="size-10 dark:invert"
           alt={NAV_LOGO.alt}
         />
       </Link>
