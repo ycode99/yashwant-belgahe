@@ -2,12 +2,13 @@ import { Button } from "@/vendors/ui/button";
 import { cn } from "@/lib/utils";
 
 interface About6Props {
+  id?: string;
   className?: string;
 }
 
-const About6 = ({ className }: About6Props) => {
+const About6 = ({ id = "about", className }: About6Props) => {
   return (
-    <section className={cn("pt-20 pb-4 lg:pt-31 lg:pb-6 bg-secondary", className)}>
+    <section id={id} className={cn("pt-20 pb-4 lg:pt-31 lg:pb-6 bg-secondary scroll-mt-16", className)}>
       <div className="container">
         <div className="mx-auto">
           <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:mb-8 lg:text-5xl">

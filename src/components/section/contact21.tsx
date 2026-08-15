@@ -28,11 +28,12 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 interface Contact21Props {
+  id?: string;
   className?: string;
   onSubmit?: (data: ContactFormData) => Promise<void>;
 }
 
-const Contact21 = ({ className, onSubmit }: Contact21Props) => {
+const Contact21 = ({ id = "contact", className, onSubmit }: Contact21Props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -68,7 +69,7 @@ const Contact21 = ({ className, onSubmit }: Contact21Props) => {
   };
 
   return (
-    <section className={cn("py-32 dark:bg-muted", className)}>
+    <section id={id} className={cn("py-32 dark:bg-muted scroll-mt-16", className)}>
       <div className="container">
         <div className="mt-20 flex flex-col justify-between gap-15 md:gap-10 lg:flex-row">
           <div className="flex w-full max-w-lg flex-col justify-between gap-10">

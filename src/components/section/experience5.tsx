@@ -11,13 +11,15 @@ interface ExperienceItem {
 }
 
 interface Experience5Props {
+  id?: string;
   title?: string;
   experience?: ExperienceItem[];
   className?: string;
 }
 
 const Experience5 = ({
-  title = "Work Experience",
+  id = "experience",
+  title = "Professional Experience",
   experience = [
     {
       title: "Senior Full Stack Developer",
@@ -50,7 +52,7 @@ const Experience5 = ({
   className,
 }: Experience5Props) => {
   return (
-    <section className={cn("py-16 md:py-32", className)}>
+    <section id={id} className={cn("py-16 md:py-32 scroll-mt-16", className)}>
       <div className="container">
         <div className="mx-auto">
           <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
