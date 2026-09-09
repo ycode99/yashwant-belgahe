@@ -59,7 +59,7 @@ const defaultProps: Hero173Props = {
     },
     secondary: {
       text: "View on GitHub",
-      url: "https://www.shadcnblocks.com",
+      url: "https://github.com/ycode99",
     },
   },
   images: [
@@ -114,7 +114,7 @@ const Hero173 = (props: Props) => {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => setIsVideoOpen(true)}
+                    render={<a href={buttons.secondary.url} target="_blank" rel="noopener noreferrer" />}
                     className="h-fit w-fit rounded-sm px-5 py-3.5 text-sm font-medium tracking-wider"
                   >
                     <Play className="size-3 fill-foreground" />
